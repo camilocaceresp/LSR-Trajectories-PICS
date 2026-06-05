@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PICS Living Review — Longitudinal Trajectories</title>
+<title>PICS Living Review — Longitudinal Trajectories after Critical Illness</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -21,15 +21,12 @@
     --green-light: #D4E8DA;
     --amber: #8B6914;
     --amber-light: #F0E3C0;
-    --slate: #4A5568;
     --radius: 6px;
     --radius-lg: 12px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--bg);
@@ -39,11 +36,11 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(245,244,241,0.92);
-    backdrop-filter: blur(12px);
+    background: rgba(245,244,241,0.94);
+    backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     height: 56px;
     display: flex; align-items: center;
@@ -56,594 +53,558 @@
   .nav-logo {
     font-family: 'DM Mono', monospace;
     font-size: 11px; font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;
   }
-  .nav-links {
-    display: flex; gap: 32px; list-style: none;
-  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a {
     font-size: 13px; color: var(--text-secondary);
-    text-decoration: none; font-weight: 400;
-    transition: color 0.2s;
+    text-decoration: none; transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--text-primary); }
 
-  /* ── LAYOUT ── */
-  .container {
-    max-width: 1160px; margin: 0 auto;
-    padding: 0 40px;
-  }
-
-  section { padding: 80px 0; }
+  /* LAYOUT */
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+  section { padding: 88px 0; }
   section + section { border-top: 1px solid var(--border); }
 
-  /* ── HERO ── */
-  #hero {
-    padding-top: 140px; padding-bottom: 96px;
-    position: relative; overflow: hidden;
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 64px;
-    align-items: start;
-  }
-  .hero-tag {
+  /* HERO */
+  #hero { padding-top: 148px; padding-bottom: 104px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 360px; gap: 72px; align-items: start; }
+
+  .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px; font-weight: 500;
-    color: var(--accent);
-    background: var(--accent-light);
+    font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
+    color: var(--accent); background: var(--accent-light);
     border: 1px solid rgba(44,95,110,0.2);
-    padding: 4px 12px;
-    border-radius: 99px;
-    margin-bottom: 28px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    padding: 5px 14px; border-radius: 99px;
+    margin-bottom: 32px; letter-spacing: 0.06em; text-transform: uppercase;
   }
-  .hero-tag::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
+  .hero-eyebrow::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--accent); border-radius: 50%;
+    animation: pulse 2.4s ease-in-out infinite;
   }
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
+    50% { opacity: 0.4; transform: scale(0.75); }
   }
+
   h1 {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(30px, 3.5vw, 46px);
-    line-height: 1.15;
-    color: var(--text-primary);
-    font-weight: 400;
-    margin-bottom: 24px;
-    letter-spacing: -0.01em;
+    font-size: clamp(32px, 3.8vw, 50px);
+    line-height: 1.12; color: var(--text-primary);
+    font-weight: 400; margin-bottom: 28px; letter-spacing: -0.015em;
   }
-  h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
+  h1 em { font-style: italic; color: var(--accent); }
+
   .hero-sub {
-    font-size: 16px;
-    color: var(--text-secondary);
-    max-width: 540px;
-    line-height: 1.7;
-    margin-bottom: 36px;
+    font-size: 16px; color: var(--text-secondary);
+    max-width: 520px; line-height: 1.75; margin-bottom: 40px;
   }
-  .hero-actions {
-    display: flex; gap: 12px; flex-wrap: wrap;
-  }
+
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn-primary {
-    background: var(--accent);
-    color: white;
+    background: var(--accent); color: white;
     border: none; border-radius: var(--radius);
-    padding: 10px 22px;
-    font-size: 13px; font-weight: 500;
+    padding: 11px 24px; font-size: 13px; font-weight: 500;
     cursor: pointer; text-decoration: none;
     display: inline-flex; align-items: center; gap: 8px;
-    transition: background 0.2s, transform 0.1s;
-    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s; font-family: 'DM Sans', sans-serif;
   }
   .btn-primary:hover { background: var(--accent-mid); }
   .btn-secondary {
-    background: transparent;
-    color: var(--text-primary);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 10px 22px;
-    font-size: 13px; font-weight: 400;
+    background: transparent; color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 11px 24px; font-size: 13px; font-weight: 400;
     cursor: pointer; text-decoration: none;
     display: inline-flex; align-items: center; gap: 8px;
-    transition: border-color 0.2s, background 0.2s;
-    font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.2s, background 0.2s; font-family: 'DM Sans', sans-serif;
   }
-  .btn-secondary:hover { border-color: var(--accent); background: var(--accent-light); }
+  .btn-pending {
+    background: transparent; color: var(--text-muted);
+    border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 11px 20px; font-size: 13px; font-weight: 400;
+    display: inline-flex; align-items: center; gap: 8px;
+    cursor: not-allowed; font-family: 'DM Sans', sans-serif;
+    opacity: 0.7;
+  }
+  .pending-dot {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    font-weight: 500; color: var(--amber);
+    background: var(--amber-light); border-radius: 99px;
+    padding: 1px 7px; letter-spacing: 0.04em;
+  }
 
-  /* Hero side card */
-  .hero-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 28px;
+  /* STATUS CARD */
+  .status-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); overflow: hidden;
   }
-  .hero-card-title {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 20px;
+  .status-card-header {
+    background: var(--accent); padding: 20px 24px;
   }
-  .meta-row {
-    display: flex; justify-content: space-between; align-items: baseline;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
+  .status-card-header p {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); margin-bottom: 4px;
+  }
+  .status-card-header h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px; color: white; font-weight: 400;
+  }
+  .status-rows { padding: 8px 0; }
+  .status-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 24px; border-bottom: 1px solid var(--border);
     font-size: 13px;
   }
-  .meta-row:last-child { border-bottom: none; }
-  .meta-label { color: var(--text-muted); }
-  .meta-value { color: var(--text-primary); font-weight: 500; }
+  .status-row:last-child { border-bottom: none; }
+  .status-label { color: var(--text-muted); }
+  .status-value { font-weight: 500; color: var(--text-primary); }
   .badge {
     display: inline-flex; align-items: center; gap: 5px;
     font-size: 11px; font-weight: 500;
     padding: 3px 9px; border-radius: 99px;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.04em;
+    font-family: 'DM Mono', monospace; letter-spacing: 0.04em;
   }
+  .badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
   .badge-green { background: var(--green-light); color: var(--green); }
   .badge-amber { background: var(--amber-light); color: var(--amber); }
   .badge-blue { background: var(--accent-light); color: var(--accent); }
-  .badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+  .badge-gray { background: #EBEBEB; color: var(--text-muted); }
 
-  /* ── SECTION HEADERS ── */
+  /* SECTION HEADERS */
   .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 8px;
+    font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 8px;
   }
   h2 {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(22px, 2.5vw, 30px);
-    font-weight: 400;
-    color: var(--text-primary);
-    line-height: 1.2;
-    margin-bottom: 16px;
+    font-size: clamp(24px, 2.8vw, 34px);
+    font-weight: 400; color: var(--text-primary);
+    line-height: 1.15; margin-bottom: 16px;
   }
   .section-intro {
-    color: var(--text-secondary);
-    max-width: 560px;
-    font-size: 15px;
-    line-height: 1.7;
+    color: var(--text-secondary); max-width: 580px;
+    font-size: 15px; line-height: 1.75;
   }
 
-  /* ── PURPOSE ── */
-  #purpose .purpose-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
+  /* RATIONALE */
+  #rationale .rationale-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 20px; margin-top: 52px;
   }
-  .purpose-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    position: relative;
+  .rationale-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 32px 28px;
+    position: relative; overflow: hidden;
   }
-  .purpose-num {
+  .rationale-card::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--accent); opacity: 0.3;
+    transition: opacity 0.2s;
+  }
+  .rationale-card:hover::after { opacity: 1; }
+  .rationale-num {
     font-family: 'DM Serif Display', serif;
-    font-size: 48px;
-    color: var(--accent-light);
-    line-height: 1;
-    margin-bottom: 12px;
-    user-select: none;
+    font-size: 56px; color: var(--accent-light);
+    line-height: 1; margin-bottom: 16px; user-select: none;
   }
-  .purpose-card h3 {
-    font-size: 14px; font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-  }
-  .purpose-card p {
-    font-size: 13px; color: var(--text-secondary); line-height: 1.65;
-  }
+  .rationale-card h3 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 10px; }
+  .rationale-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
 
-  /* ── METHODOLOGY FLOW ── */
-  #methodology {
-    background: var(--surface);
+  /* OBJECTIVES */
+  #objectives { background: var(--surface); }
+  .obj-primary {
+    background: var(--accent); border-radius: var(--radius-lg);
+    padding: 36px 40px; margin-top: 52px; margin-bottom: 20px;
+    position: relative; overflow: hidden;
   }
+  .obj-primary::before {
+    content: 'PRIMARY'; position: absolute;
+    right: 32px; top: 32px;
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    letter-spacing: 0.15em; color: rgba(255,255,255,0.25);
+  }
+  .obj-primary p { font-size: 17px; line-height: 1.65; color: white; font-weight: 400; }
+  .obj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .obj-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 22px 20px;
+    transition: border-color 0.2s;
+  }
+  .obj-card:hover { border-color: var(--accent); }
+  .obj-num {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    color: var(--accent); font-weight: 500; letter-spacing: 0.1em; margin-bottom: 8px;
+  }
+  .obj-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* METHODOLOGY */
+  #methodology { background: var(--bg); }
   .flow-header {
     display: flex; justify-content: space-between; align-items: flex-end;
     margin-bottom: 48px;
   }
-  .flow-container {
-    position: relative;
+  .flow-hint {
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    color: var(--text-muted); letter-spacing: 0.08em;
   }
   .flow-stages {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2px;
-    margin-bottom: 2px;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px;
   }
   .flow-stage {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px 20px;
-    cursor: pointer;
-    transition: all 0.25s;
-    position: relative;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px 18px;
+    cursor: pointer; transition: all 0.22s;
   }
   .flow-stage:hover, .flow-stage.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(44,95,110,0.2);
+    background: var(--accent); border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(44,95,110,0.18);
   }
   .flow-stage:hover *, .flow-stage.active * { color: white !important; }
-  .flow-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; color: var(--text-muted);
-    margin-bottom: 10px;
-  }
-  .flow-name {
-    font-size: 14px; font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 6px;
-  }
-  .flow-desc {
-    font-size: 12px; color: var(--text-secondary); line-height: 1.5;
-  }
-  .flow-arrow {
-    position: absolute; right: -13px; top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-muted);
-    font-size: 16px; z-index: 1;
-    pointer-events: none;
-  }
-
+  .flow-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted); margin-bottom: 10px; }
+  .flow-name { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+  .flow-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
   .flow-detail {
-    background: var(--accent);
-    border-radius: var(--radius);
-    padding: 24px 28px;
-    display: none;
-    margin-top: 2px;
+    background: var(--accent); border-radius: var(--radius);
+    padding: 28px 32px; display: none; margin-top: 3px;
   }
-  .flow-detail.visible { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .flow-detail.visible { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
   .flow-detail-col h4 {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 10px;
+    font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 12px;
   }
-  .flow-detail-col ul {
-    list-style: none; padding: 0;
-  }
+  .flow-detail-col ul { list-style: none; }
   .flow-detail-col ul li {
-    font-size: 13px; color: rgba(255,255,255,0.9);
-    padding: 3px 0;
-    padding-left: 14px;
-    position: relative;
+    font-size: 13px; color: rgba(255,255,255,0.88);
+    padding: 4px 0 4px 16px; position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
+  .flow-detail-col ul li:last-child { border-bottom: none; }
   .flow-detail-col ul li::before {
     content: '→'; position: absolute; left: 0;
-    color: rgba(255,255,255,0.4); font-size: 10px;
-    top: 4px;
+    color: rgba(255,255,255,0.35); font-size: 10px; top: 5px;
   }
 
-  /* ── TIMELINE / PROGRESS ── */
-  #progress .timeline {
-    margin-top: 48px;
-    display: flex; flex-direction: column; gap: 0;
-    position: relative;
+  /* BAYESIAN */
+  #bayesian { background: var(--surface); }
+  .bayesian-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 52px; }
+  .bayesian-card {
+    border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 36px 32px; background: var(--bg); position: relative; overflow: hidden;
   }
-  .timeline::before {
-    content: '';
-    position: absolute; left: 140px; top: 0; bottom: 0;
+  .bayesian-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  }
+  .bayesian-card:nth-child(1)::before { background: var(--accent); }
+  .bayesian-card:nth-child(2)::before { background: var(--green); }
+  .bayesian-tag {
+    font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 14px;
+  }
+  .bayesian-card h3 {
+    font-family: 'DM Serif Display', serif; font-size: 21px;
+    font-weight: 400; color: var(--text-primary); margin-bottom: 16px;
+  }
+  .bayesian-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.72; margin-bottom: 14px; }
+  .bayesian-formula {
+    font-family: 'DM Mono', monospace; font-size: 14px; color: var(--accent);
+    background: var(--accent-light); border: 1px solid rgba(44,95,110,0.15);
+    border-radius: var(--radius); padding: 14px 18px; margin-top: 18px;
+    letter-spacing: 0.03em;
+  }
+  .bayesian-specs {
+    margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border);
+  }
+  .bayesian-spec {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 12px; padding: 5px 0; border-bottom: 1px solid var(--border);
+  }
+  .bayesian-spec:last-child { border-bottom: none; }
+  .bayesian-spec span:first-child { color: var(--text-muted); }
+  .bayesian-spec span:last-child {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    font-weight: 500; color: var(--text-primary);
+  }
+  .bayesian-note {
+    margin-top: 24px; padding: 18px 22px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); font-size: 13px;
+    color: var(--text-secondary); line-height: 1.7;
+  }
+
+  /* DOMAINS */
+  #domains { background: var(--bg); }
+  .domains-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 16px; margin-top: 52px;
+  }
+  .domain-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 24px 20px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .domain-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .domain-num {
+    font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted);
+    margin-bottom: 10px; letter-spacing: 0.08em;
+  }
+  .domain-card h3 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; }
+  .domain-subs { list-style: none; }
+  .domain-subs li {
+    font-size: 11px; color: var(--text-muted); font-family: 'DM Mono', monospace;
+    padding: 3px 0; border-bottom: 1px solid var(--border);
+  }
+  .domain-subs li:last-child { border-bottom: none; }
+
+  /* TIMEPOINTS */
+  #timepoints { background: var(--surface); }
+  .tp-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    margin-top: 52px; border: 1px solid var(--border);
+    border-radius: var(--radius-lg); overflow: hidden;
+  }
+  .tp-cell {
+    padding: 28px 20px; background: var(--bg);
+    border-right: 1px solid var(--border);
+  }
+  .tp-cell:last-child { border-right: none; }
+  .tp-cell.t0 { background: var(--accent); }
+  .tp-tag {
+    font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .tp-cell.t0 .tp-tag { color: rgba(255,255,255,0.6); }
+  .tp-label { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 5px; }
+  .tp-cell.t0 .tp-label { color: white; }
+  .tp-window { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted); }
+  .tp-cell.t0 .tp-window { color: rgba(255,255,255,0.45); }
+
+  /* ROADMAP */
+  #roadmap { background: var(--bg); }
+  .roadmap-grid { display: grid; grid-template-columns: 160px 1fr; margin-top: 52px; }
+  .roadmap-line {
+    position: relative; display: flex; flex-direction: column;
+    align-items: center; padding-top: 6px;
+  }
+  .roadmap-line::before {
+    content: ''; position: absolute; top: 14px; bottom: 0;
     width: 1px; background: var(--border);
   }
-  .timeline-item {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 0;
-    padding: 20px 0;
+  .roadmap-items { display: flex; flex-direction: column; }
+  .roadmap-item { display: contents; }
+  .roadmap-date {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: var(--text-muted); text-align: right; padding: 18px 28px 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .roadmap-item:last-child .roadmap-date { border-bottom: none; }
+  .roadmap-content {
+    padding: 16px 0 16px 32px; border-bottom: 1px solid var(--border);
     position: relative;
   }
-  .timeline-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px; color: var(--text-muted);
-    padding-top: 3px;
-    padding-right: 32px;
-    text-align: right;
-  }
-  .timeline-dot {
-    position: absolute; left: 133px; top: 26px;
-    width: 14px; height: 14px;
-    border-radius: 50%;
-    border: 2px solid var(--bg);
-    z-index: 1;
+  .roadmap-item:last-child .roadmap-content { border-bottom: none; }
+  .roadmap-dot {
+    position: absolute; left: -7px; top: 22px;
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 2px solid var(--bg); z-index: 1;
   }
   .dot-done { background: var(--green); }
   .dot-active { background: var(--accent); box-shadow: 0 0 0 4px var(--accent-light); }
   .dot-pending { background: var(--border); }
-  .timeline-content { padding-left: 40px; }
-  .timeline-content h4 {
-    font-size: 14px; font-weight: 600;
-    color: var(--text-primary); margin-bottom: 4px;
-  }
-  .timeline-content p {
-    font-size: 13px; color: var(--text-secondary);
-  }
+  .dot-recurring { background: var(--amber); }
+  .roadmap-content h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+  .roadmap-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
 
-  /* ── FICHA TÉCNICA ── */
-  #transparency .ficha-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
+  /* FICHA */
+  #ficha { background: var(--surface); }
+  .ficha-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 52px; }
   .ficha-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 28px;
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 28px 32px;
   }
-  .ficha-card-title {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 20px;
+  .ficha-title {
+    font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 20px;
   }
   .ficha-row {
     display: flex; justify-content: space-between; align-items: baseline;
-    padding: 9px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 13px; gap: 16px;
+    padding: 9px 0; border-bottom: 1px solid var(--border);
+    font-size: 13px; gap: 20px;
   }
   .ficha-row:last-child { border-bottom: none; }
   .ficha-key { color: var(--text-muted); flex-shrink: 0; }
   .ficha-val { color: var(--text-primary); font-weight: 500; text-align: right; }
   .ficha-val.mono { font-family: 'DM Mono', monospace; font-size: 12px; }
 
-  /* ── DOMAINS ── */
-  #domains .domains-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-    margin-top: 48px;
-  }
-  .domain-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 22px 18px;
-    transition: border-color 0.2s, transform 0.2s;
-    cursor: default;
-  }
-  .domain-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-  .domain-icon {
-    width: 36px; height: 36px;
-    background: var(--accent-light);
-    border-radius: var(--radius);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 14px;
-    font-size: 16px;
-  }
-  .domain-card h3 {
-    font-size: 13px; font-weight: 600;
-    color: var(--text-primary); margin-bottom: 8px;
-  }
-  .domain-subs {
-    list-style: none; padding: 0;
-  }
-  .domain-subs li {
-    font-size: 11px; color: var(--text-muted);
-    padding: 2px 0;
-    border-bottom: 1px solid var(--border);
-    font-family: 'DM Mono', monospace;
-  }
-  .domain-subs li:last-child { border-bottom: none; }
-
-  /* ── OUTPUTS ── */
-  #outputs .outputs-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 48px;
-  }
-  .output-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    display: flex; flex-direction: column; gap: 12px;
+  /* TEAM */
+  #team { background: var(--bg); }
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 52px; }
+  .team-card {
+    border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 28px 28px; background: var(--surface);
+    display: flex; gap: 20px; align-items: flex-start;
     transition: border-color 0.2s;
   }
-  .output-card:hover { border-color: var(--accent); }
-  .output-header {
-    display: flex; justify-content: space-between; align-items: flex-start;
-  }
-  .output-icon {
-    width: 40px; height: 40px;
-    border-radius: var(--radius);
-    background: var(--bg);
-    border: 1px solid var(--border);
+  .team-card:hover { border-color: var(--accent); }
+  .team-avatar {
+    width: 48px; height: 48px; background: var(--accent-light);
+    border-radius: var(--radius); flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
+    font-family: 'DM Serif Display', serif; font-size: 18px;
+    color: var(--accent); font-weight: 400;
   }
-  .output-card h3 {
-    font-size: 14px; font-weight: 600;
-    color: var(--text-primary);
-  }
-  .output-card p {
-    font-size: 12px; color: var(--text-secondary); line-height: 1.6;
-  }
-  .output-footer {
-    margin-top: auto;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .output-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; color: var(--text-muted);
-  }
-
-  /* ── UPDATES ── */
-  #updates .updates-list {
-    margin-top: 48px;
-    display: flex; flex-direction: column; gap: 0;
-  }
-  .update-item {
-    display: grid; grid-template-columns: 160px 1fr;
-    padding: 20px 0; border-bottom: 1px solid var(--border);
-    gap: 32px;
-  }
-  .update-item:first-child { border-top: 1px solid var(--border); }
-  .update-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px; color: var(--text-muted);
-    padding-top: 2px;
-  }
-  .update-content h4 {
-    font-size: 14px; font-weight: 600;
-    color: var(--text-primary); margin-bottom: 4px;
-  }
-  .update-content p {
-    font-size: 13px; color: var(--text-secondary);
-  }
-
-  /* ── TEAM ── */
-  #team {
-    background: var(--surface);
-  }
-  #team .team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-top: 48px;
-  }
-  .team-card {
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 22px 20px;
-    background: var(--bg);
-  }
-  .team-initials {
-    width: 40px; height: 40px;
-    background: var(--accent-light);
-    border-radius: var(--radius);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'DM Serif Display', serif;
-    font-size: 15px; color: var(--accent);
-    margin-bottom: 14px;
-    font-weight: 400;
-  }
-  .team-card h3 {
-    font-size: 13px; font-weight: 600;
-    color: var(--text-primary); margin-bottom: 4px;
-  }
+  .team-info h3 { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 3px; }
   .team-role {
-    font-size: 11px; color: var(--accent);
-    font-weight: 500; margin-bottom: 4px;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.04em;
+    font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500;
+    color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px;
   }
-  .team-affil {
-    font-size: 11px; color: var(--text-muted);
-    line-height: 1.5;
+  .team-affil { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .team-email {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: var(--accent); text-decoration: none;
+    border-bottom: 1px solid var(--accent-light);
+    transition: border-color 0.2s; margin-top: 6px; display: inline-block;
   }
-  .team-coi {
-    margin-top: 10px;
-    font-size: 10px; color: var(--amber);
-    background: var(--amber-light);
-    padding: 2px 8px; border-radius: 99px;
-    font-family: 'DM Mono', monospace;
-    display: inline-block;
+  .team-email:hover { border-color: var(--accent); }
+  .team-note {
+    margin-top: 20px; padding: 16px 20px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); font-size: 13px;
+    color: var(--text-muted); line-height: 1.65;
   }
 
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 40px 0;
-    background: var(--surface);
+  /* CHANGELOG */
+  #changelog { background: var(--surface); }
+  .changelog-list { margin-top: 52px; }
+  .changelog-item {
+    display: grid; grid-template-columns: 160px 1fr;
+    gap: 32px; padding: 22px 0; border-bottom: 1px solid var(--border);
   }
-  .footer-inner {
-    display: grid; grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
+  .changelog-item:first-child { border-top: 1px solid var(--border); }
+  .changelog-date {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: var(--text-muted); padding-top: 2px;
   }
+  .changelog-content h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 5px; }
+  .changelog-content p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* SEARCH ACCORDION */
+  #search { background: var(--surface); }
+  .search-accordion { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .search-toggle {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 24px; background: var(--bg);
+    border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 500; color: var(--text-primary);
+    transition: background 0.2s;
+  }
+  .search-toggle:hover { background: var(--accent-light); }
+  .search-toggle-icon {
+    font-family: 'DM Mono', monospace; font-size: 16px;
+    color: var(--accent); transition: transform 0.25s; display: inline-block;
+  }
+  .search-toggle-icon.open { transform: rotate(180deg); }
+  .search-content { display: none; border-top: 1px solid var(--border); }
+  .search-content.visible { display: block; }
+  .search-actions {
+    display: flex; justify-content: flex-end;
+    padding: 12px 16px; background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .copy-btn {
+    font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.06em; color: var(--accent);
+    background: var(--accent-light); border: 1px solid rgba(44,95,110,0.2);
+    border-radius: var(--radius); padding: 6px 14px;
+    cursor: pointer; transition: background 0.2s;
+  }
+  .copy-btn:hover { background: rgba(44,95,110,0.15); }
+  .copy-btn.copied { color: var(--green); background: var(--green-light); border-color: rgba(58,107,74,0.2); }
+  .search-string {
+    font-family: 'DM Mono', monospace; font-size: 12px;
+    line-height: 1.9; padding: 24px 28px;
+    word-break: break-word; background: var(--surface); margin: 0;
+    max-height: 380px; overflow-y: auto;
+  }
+  .search-block-1 { color: #B5391A; }
+  .search-block-2 { color: #1A4F8A; }
+  .search-block-3 { color: #2A6B3A; }
+  .search-and {
+    font-weight: 700; color: #1A1916;
+    font-size: 13px; padding: 0 6px;
+  }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 48px 0; background: var(--bg); }
+  .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; }
   .footer-col h4 {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 12px;
+    font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 14px;
   }
   .footer-col p, .footer-col a {
-    font-size: 13px; color: var(--text-secondary);
-    line-height: 1.7; text-decoration: none; display: block;
+    font-size: 13px; color: var(--text-secondary); line-height: 1.8;
+    text-decoration: none; display: block;
   }
   .footer-col a:hover { color: var(--accent); }
   .footer-bottom {
-    margin-top: 32px; padding-top: 20px;
-    border-top: 1px solid var(--border);
+    margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
     display: flex; justify-content: space-between; align-items: center;
   }
-  .footer-bottom p {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px; color: var(--text-muted);
-    letter-spacing: 0.04em;
-  }
+  .footer-bottom p { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.04em; }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-card { display: none; }
-    #purpose .purpose-grid { grid-template-columns: 1fr; }
+    .status-card { display: none; }
+    #rationale .rationale-grid { grid-template-columns: 1fr; }
+    .obj-grid { grid-template-columns: 1fr 1fr; }
     .flow-stages { grid-template-columns: 1fr 1fr; }
-    #domains .domains-grid { grid-template-columns: repeat(2, 1fr); }
-    #outputs .outputs-grid { grid-template-columns: 1fr 1fr; }
-    #team .team-grid { grid-template-columns: repeat(2, 1fr); }
-    .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+    .flow-detail.visible { grid-template-columns: 1fr; }
+    .bayesian-grid { grid-template-columns: 1fr; }
+    .domains-grid { grid-template-columns: repeat(2, 1fr); }
+    .tp-grid { grid-template-columns: repeat(3, 1fr); }
+    .team-grid { grid-template-columns: 1fr; }
     .ficha-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
     nav { padding: 0 20px; }
-    .container { padding: 0 20px; }
+    .container { padding: 0 24px; }
     .nav-links { display: none; }
-    .timeline::before { left: 100px; }
-    .timeline-date { font-size: 10px; }
-    .timeline-dot { left: 93px; }
   }
-
-  /* subtle fade-in on load */
-  .fade-in {
-    opacity: 0; transform: translateY(16px);
-    animation: fadeUp 0.6s ease forwards;
+  @media (max-width: 600px) {
+    .obj-grid { grid-template-columns: 1fr; }
+    .domains-grid { grid-template-columns: 1fr 1fr; }
+    .search-meta { flex-direction: column; }
+    section { padding: 60px 0; }
   }
-  @keyframes fadeUp {
-    to { opacity: 1; transform: translateY(0); }
+  @media (max-width: 420px) {
+    .domains-grid { grid-template-columns: 1fr; }
+    .tp-grid { grid-template-columns: repeat(2, 1fr); }
+    h1 { font-size: 30px; }
   }
-  .fade-in:nth-child(2) { animation-delay: 0.1s; }
-  .fade-in:nth-child(3) { animation-delay: 0.2s; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <span class="nav-logo">PICS · Living Review · v0.6</span>
     <ul class="nav-links">
-      <li><a href="#purpose">Rationale</a></li>
-      <li><a href="#methodology">Methodology</a></li>
-      <li><a href="#progress">Progress</a></li>
-      <li><a href="#outputs">Outputs</a></li>
+      <li><a href="#rationale">Rationale</a></li>
+      <li><a href="#objectives">Objectives</a></li>
+      <li><a href="#methodology">Methods</a></li>
+      <li><a href="#search">Search</a></li>
+      <li><a href="#bayesian">Bayesian</a></li>
+      <li><a href="#domains">Domains</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#team">Team</a></li>
     </ul>
   </div>
@@ -654,286 +615,411 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="hero-tag fade-in">Living Systematic Review — Active</div>
-        <h1 class="fade-in">Longitudinal trajectories after<br><em>critical illness</em></h1>
-        <p class="hero-sub fade-in">A systematic review and meta-analysis of cohort studies examining physical function, cognition, mental health, disability, and health-related quality of life in adults surviving critical illness.</p>
-        <div class="hero-actions fade-in">
-          <a href="#methodology" class="btn-primary">Explore methodology →</a>
-          <a href="#outputs" class="btn-secondary">View protocol ↗</a>
+        <div class="hero-eyebrow">Protocol in development · Not yet registered</div>
+        <h1>Longitudinal trajectories<br>of recovery after<br><em>critical illness</em></h1>
+        <p class="hero-sub">A living systematic review and Bayesian meta-analysis synthesising evidence on how adults recover — or fail to recover — across five domains of post-intensive care syndrome, from ICU discharge through long-term follow-up.</p>
+        <div class="hero-actions">
+          <a href="#objectives" class="btn-primary">Explore the protocol →</a>
+          <a href="#methodology" class="btn-secondary">Methods overview</a>
+          <span class="btn-pending" title="PROSPERO registration pending">PROSPERO <span class="pending-dot">pending</span></span>
+          <span class="btn-pending" title="Protocol PDF available soon">Protocol PDF <span class="pending-dot">pending</span></span>
         </div>
       </div>
-      <div class="hero-card fade-in">
-        <div class="hero-card-title">Project status</div>
-        <div class="meta-row">
-          <span class="meta-label">Phase</span>
-          <span class="badge badge-amber">Protocol registration</span>
+      <div class="status-card">
+        <div class="status-card-header">
+          <p>Project status</p>
+          <h3>Protocol v0.6<br>June 2026</h3>
         </div>
-        <div class="meta-row">
-          <span class="meta-label">PROSPERO</span>
-          <span class="meta-value">Pending submission</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Protocol version</span>
-          <span class="meta-value">v0.6 · June 2026</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Search start</span>
-          <span class="meta-value">30 Jul 2026</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Review type</span>
-          <span class="badge badge-blue">LSR · 12-mo cycles</span>
-        </div>
-        <div class="meta-row">
-          <span class="meta-label">Records (draft)</span>
-          <span class="meta-value">~19,785 (PubMed)</span>
+        <div class="status-rows">
+          <div class="status-row">
+            <span class="status-label">Phase</span>
+            <span class="badge badge-amber">Protocol development</span>
+          </div>
+          <div class="status-row">
+            <span class="status-label">PROSPERO</span>
+            <span class="badge badge-gray">Pending registration</span>
+          </div>
+          <div class="status-row">
+            <span class="status-label">Search start</span>
+            <span class="status-value">30 Jul 2026</span>
+          </div>
+          <div class="status-row">
+            <span class="status-label">Draft records</span>
+            <span class="status-value">~25,549</span>
+          </div>
+          <div class="status-row">
+            <span class="status-label">Databases</span>
+            <span class="status-value">8 databases</span>
+          </div>
+          <div class="status-row">
+            <span class="status-label">Update cycle</span>
+            <span class="badge badge-blue">12-month LSR</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PURPOSE -->
-<section id="purpose">
+<!-- RATIONALE -->
+<section id="rationale">
   <div class="container">
     <div class="section-label">Why this review</div>
-    <h2>A gap in the evidence</h2>
-    <p class="section-intro">Survival from critical illness has improved markedly, yet complete functional recovery remains rare. PICS affects the majority of adults who survived critical illness across at least one domain — yet its longitudinal course remains poorly characterised.</p>
-    <div class="purpose-grid">
-      <div class="purpose-card">
-        <div class="purpose-num">01</div>
-        <h3>No multi-domain synthesis exists</h3>
-        <p>Prior reviews examined single domains in isolation or focused on point-prevalence rather than trajectories of change over time.</p>
+    <h2>A gap that needs closing</h2>
+    <p class="section-intro">Surviving critical illness does not equate to recovery. The evidence exists — but it is fragmented, domain-specific, and never integrated into longitudinal estimates that can inform the next generation of clinical and Bayesian research.</p>
+    <div class="rationale-grid">
+      <div class="rationale-card">
+        <div class="rationale-num">01</div>
+        <h3>Domains studied in isolation</h3>
+        <p>Existing systematic reviews have examined physical function, cognition, depression, PTSD, HRQoL, and disability as separate literatures. No review has synthesised quantitative trajectories of change across all five PICS domains simultaneously from cohort data with multiple measurement points.</p>
       </div>
-      <div class="purpose-card">
-        <div class="purpose-num">02</div>
-        <h3>Natural history is unknown</h3>
-        <p>Without pooled quantitative estimates of recovery trajectories, it is impossible to identify critical windows for intervention or build predictive models.</p>
+      <div class="rationale-card">
+        <div class="rationale-num">02</div>
+        <h3>Trajectories, not point estimates</h3>
+        <p>Most prior evidence captures point-prevalence at a single follow-up. This review pools the magnitude of change from ICU discharge through each pre-specified time window — generating the longitudinal picture the field has been missing.</p>
       </div>
-      <div class="purpose-card">
-        <div class="purpose-num">03</div>
-        <h3>Bayesian priors are needed</h3>
-        <p>This review will generate domain-specific tau-squared estimates to parameterise informative priors for future Bayesian analyses of PICS.</p>
+      <div class="rationale-card">
+        <div class="rationale-num">03</div>
+        <h3>Bayesian priors for future studies</h3>
+        <p>The τ² estimates from this review will parameterise domain-specific informative priors for future Bayesian studies in adults recovering from critical illness. A living design ensures these priors are updated as new cohort evidence accumulates.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- METHODOLOGY FLOW -->
+<!-- OBJECTIVES -->
+<section id="objectives">
+  <div class="container">
+    <div class="section-label">Objectives</div>
+    <h2>What we set out to answer</h2>
+    <p class="section-intro">One primary objective, six pre-specified secondary objectives.</p>
+    <div class="obj-primary">
+      <p>To synthesise the longitudinal trajectories of physical function, cognition, mental health, disability, and health-related quality of life in adults who survived critical illness, from ICU discharge through at least three months of follow-up, using cohort studies with two or more measurement points.</p>
+    </div>
+    <div class="obj-grid">
+      <div class="obj-card">
+        <div class="obj-num">SO — 01</div>
+        <p>Estimate the MD or SMD of change per domain and subdomain at each time point, depending on instrument homogeneity across studies.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">SO — 02</div>
+        <p>Quantify between-study heterogeneity (I² and τ²) by domain and follow-up time point.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">SO — 03</div>
+        <p>Map measurement instruments used across domains and subdomains.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">SO — 04</div>
+        <p>Explore sources of variability through meta-regression: ICU type, illness severity, age, mechanical ventilation duration, and frailty at baseline.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">SO — 05</div>
+        <p>Generate domain-specific informative priors for future Bayesian studies in adults recovering from critical illness.</p>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">SO — 06</div>
+        <p>Estimate the probability that recovery exceeds the MCID per domain and time point, using Bayesian meta-analysis with vague priors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
 <section id="methodology">
   <div class="container">
     <div class="flow-header">
       <div>
-        <div class="section-label">How this review works</div>
-        <h2>Methodological architecture</h2>
+        <div class="section-label">How it works</div>
+        <h2>Five-stage methodology</h2>
       </div>
-      <p style="font-size:12px;color:var(--text-muted);font-family:'DM Mono',monospace;">Click any stage to expand</p>
+      <span class="flow-hint">Click any stage to expand ↓</span>
     </div>
-    <div class="flow-container">
-      <div class="flow-stages">
-        <div class="flow-stage active" onclick="showStage(0)" id="stage-0">
-          <div class="flow-num">01</div>
-          <div class="flow-name">Search</div>
-          <div class="flow-desc">8 databases, no language or date restrictions</div>
-        </div>
-        <div class="flow-stage" onclick="showStage(1)" id="stage-1">
-          <div class="flow-num">02</div>
-          <div class="flow-name">Screening</div>
-          <div class="flow-desc">Semi-automated dual-reviewer screening (platform TBC)</div>
-        </div>
-        <div class="flow-stage" onclick="showStage(2)" id="stage-2">
-          <div class="flow-num">03</div>
-          <div class="flow-name">Extraction</div>
-          <div class="flow-desc">Standardised form covering ICU, clinical and outcome variables</div>
-        </div>
-        <div class="flow-stage" onclick="showStage(3)" id="stage-3">
-          <div class="flow-num">04</div>
-          <div class="flow-name">Analysis</div>
-          <div class="flow-desc">Random-effects meta-analysis (REML), meta-regression, GRADE</div>
-        </div>
-        <div class="flow-stage" onclick="showStage(4)" id="stage-4">
-          <div class="flow-num">05</div>
-          <div class="flow-name">Living Update</div>
-          <div class="flow-desc">12-month search cycles with transparent amendment log</div>
-        </div>
+    <div class="flow-stages">
+      <div class="flow-stage active" onclick="showStage(0)" id="s0">
+        <div class="flow-num">01</div>
+        <div class="flow-name">Search</div>
+        <div class="flow-desc">8 databases, no date or language restrictions</div>
       </div>
-
-      <div class="flow-detail visible" id="detail-0">
-        <div class="flow-detail-col">
-          <h4>Databases</h4>
-          <ul>
-            <li>MEDLINE via PubMed</li>
-            <li>EMBASE via Ovid</li>
-            <li>CINAHL via EBSCOhost</li>
-            <li>PsycINFO</li>
-            <li>CENTRAL (Cochrane)</li>
-            <li>Web of Science</li>
-            <li>LILACS</li>
-            <li>PEDro</li>
-          </ul>
-        </div>
-        <div class="flow-detail-col">
-          <h4>Strategy</h4>
-          <ul>
-            <li>MeSH + keyword combinations</li>
-            <li>Boolean operators</li>
-            <li>Yale MeSH Analyzer</li>
-            <li>Polyglot translation</li>
-            <li>PRESS peer review</li>
-            <li>PRISMA-S reporting</li>
-          </ul>
-        </div>
-        <div class="flow-detail-col">
-          <h4>Scope</h4>
-          <ul>
-            <li>No date restriction</li>
-            <li>No language restriction</li>
-            <li>Citation snowballing</li>
-            <li>Start date: 30 Jul 2026</li>
-          </ul>
-        </div>
+      <div class="flow-stage" onclick="showStage(1)" id="s1">
+        <div class="flow-num">02</div>
+        <div class="flow-name">Screening</div>
+        <div class="flow-desc">Semi-automated AI-assisted dual-reviewer workflow</div>
       </div>
-
-      <div class="flow-detail" id="detail-1">
-        <div class="flow-detail-col">
-          <h4>Stage 1</h4>
-          <ul>
-            <li>Title & abstract screening</li>
-            <li>Standardised eligibility form</li>
-            <li>Dual-reviewer independent</li>
-            <li>Cohen's kappa calculated</li>
-            <li>Calibration: 50 records</li>
-          </ul>
-        </div>
-        <div class="flow-detail-col">
-          <h4>Stage 2</h4>
-          <ul>
-            <li>Full-text review</li>
-            <li>Complete eligibility criteria</li>
-            <li>Exclusion reasons documented</li>
-            <li>PRISMA 2020 flow diagram</li>
-          </ul>
-        </div>
-        <div class="flow-detail-col">
-          <h4>Tools</h4>
-          <ul>
-            <li>AI-assisted screening (TBC)</li>
-            <li>SR-Accelerator Deduplicator</li>
-            <li>Conflicts → arbiter</li>
-          </ul>
-        </div>
+      <div class="flow-stage" onclick="showStage(2)" id="s2">
+        <div class="flow-num">03</div>
+        <div class="flow-name">Extraction</div>
+        <div class="flow-desc">Semi-automated, 6 variable categories, pilot-tested</div>
       </div>
-
-      <div class="flow-detail" id="detail-2">
-        <div class="flow-detail-col">
-          <h4>Categories</h4>
-          <ul>
-            <li>Bibliographic data</li>
-            <li>Study characteristics</li>
-            <li>Pre-ICU variables</li>
-            <li>ICU variables</li>
-            <li>Post-ICU follow-up</li>
-            <li>Outcome data per domain</li>
-          </ul>
-        </div>
-        <div class="flow-detail-col">
-          <h4>Key ICU variables</h4>
-          <ul>
-            <li>APACHE II/IV, SOFA</li>
-            <li>MV duration & parameters</li>
-            <li>Neuromuscular blockade</li>
-            <li>Sedation / analgesia</li>
-            <li>Biomarkers (NfL, titin…)</li>
-            <li>Physical rehabilitation</li>
-          </ul>
-        </div>
-        <div class="flow-detail-col">
-          <h4>Process</h4>
-          <ul>
-            <li>Two independent reviewers</li>
-            <li>Pilot on 5 studies</li>
-            <li>Third reviewer as arbiter</li>
-            <li>WebPlotDigitizer for figures</li>
-            <li>Author contact (2 attempts)</li>
-          </ul>
-        </div>
+      <div class="flow-stage" onclick="showStage(3)" id="s3">
+        <div class="flow-num">04</div>
+        <div class="flow-name">Analysis</div>
+        <div class="flow-desc">Frequentist REML + dual Bayesian analyses</div>
       </div>
-
-      <div class="flow-detail" id="detail-3">
-        <div class="flow-detail-col">
-          <h4>Effect measures</h4>
-          <ul>
-            <li>MD (same instrument)</li>
-            <li>SMD (diff. instruments)</li>
-            <li>Random-effects (REML)</li>
-            <li>Per domain & time point</li>
-          </ul>
-        </div>
-        <div class="flow-detail-col">
-          <h4>Heterogeneity</h4>
-          <ul>
-            <li>Cochran's Q</li>
-            <li>I² + 95% uncertainty CI</li>
-            <li>τ² for Bayesian priors</li>
-            <li>Meta-regression (≥10 studies)</li>
-          </ul>
-        </div>
-        <div class="flow-detail-col">
-          <h4>Software</h4>
-          <ul>
-            <li>R (meta, metafor)</li>
-            <li>bayesmeta (Bayesian)</li>
-            <li>ggplot2 (figures)</li>
-            <li>GRADE for certainty</li>
-            <li>Code via GitHub</li>
-          </ul>
-        </div>
+      <div class="flow-stage" onclick="showStage(4)" id="s4">
+        <div class="flow-num">05</div>
+        <div class="flow-name">Living Update</div>
+        <div class="flow-desc">12-month search cycles, Bayesian priors revised</div>
       </div>
+    </div>
+    <div class="flow-detail visible" id="d0">
+      <div class="flow-detail-col">
+        <h4>Databases</h4>
+        <ul>
+          <li>MEDLINE via PubMed</li>
+          <li>EMBASE via Ovid</li>
+          <li>CINAHL via EBSCOhost</li>
+          <li>PsycINFO</li>
+          <li>CENTRAL (Cochrane)</li>
+          <li>Web of Science</li>
+          <li>LILACS</li>
+          <li>PEDro</li>
+        </ul>
+      </div>
+      <div class="flow-detail-col">
+        <h4>Strategy</h4>
+        <ul>
+          <li>MeSH + keyword combinations</li>
+          <li>Yale MeSH Analyzer</li>
+          <li>Polyglot translation</li>
+          <li>PRESS peer review</li>
+          <li>PRISMA-S reporting</li>
+          <li>~25,549 draft records</li>
+        </ul>
+      </div>
+      <div class="flow-detail-col">
+        <h4>Scope</h4>
+        <ul>
+          <li>No date restriction</li>
+          <li>No language restriction</li>
+          <li>Forward + backward citation</li>
+          <li>Start: 30 Jul 2026</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow-detail" id="d1">
+      <div class="flow-detail-col">
+        <h4>Stage 1 — Title/Abstract</h4>
+        <ul>
+          <li>Standardised eligibility form</li>
+          <li>Dual independent reviewers</li>
+          <li>50-record calibration exercise</li>
+          <li>Cohen's kappa calculated</li>
+        </ul>
+      </div>
+      <div class="flow-detail-col">
+        <h4>Stage 2 — Full text</h4>
+        <ul>
+          <li>Complete eligibility criteria</li>
+          <li>Exclusion reasons documented</li>
+          <li>PRISMA 2020 flow diagram</li>
+          <li>Discrepancies → third reviewer</li>
+        </ul>
+      </div>
+      <div class="flow-detail-col">
+        <h4>Tools</h4>
+        <ul>
+          <li>AI-assisted screening (TBC)</li>
+          <li>The Duplicator (deduplication)</li>
+          <li>SR-Accelerator Polyglot</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow-detail" id="d2">
+      <div class="flow-detail-col">
+        <h4>Variable blocks</h4>
+        <ul>
+          <li>Bibliographic data</li>
+          <li>Study characteristics</li>
+          <li>Pre-ICU variables</li>
+          <li>ICU variables</li>
+          <li>Post-ICU follow-up</li>
+          <li>Outcome data per domain</li>
+        </ul>
+      </div>
+      <div class="flow-detail-col">
+        <h4>Key ICU variables</h4>
+        <ul>
+          <li>APACHE II/IV, SOFA</li>
+          <li>Mechanical ventilation duration</li>
+          <li>Days of delirium</li>
+          <li>Time to first physio/OT</li>
+          <li>Neuromuscular blockade</li>
+          <li>Biomarkers (NfL, titin…)</li>
+        </ul>
+      </div>
+      <div class="flow-detail-col">
+        <h4>Process</h4>
+        <ul>
+          <li>AI-assisted extraction (TBC)</li>
+          <li>Pilot on 5 studies</li>
+          <li>Third reviewer as arbiter</li>
+          <li>WebPlotDigitizer for figures</li>
+          <li>Author contact (2 attempts)</li>
+          <li>MCID extracted per instrument</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow-detail" id="d3">
+      <div class="flow-detail-col">
+        <h4>Frequentist</h4>
+        <ul>
+          <li>Random-effects model (REML)</li>
+          <li>MD or SMD per domain</li>
+          <li>Pooled per time window</li>
+          <li>Cochran's Q, I², τ²</li>
+          <li>Meta-regression (≥10 studies)</li>
+          <li>Subgroup + sensitivity analyses</li>
+        </ul>
+      </div>
+      <div class="flow-detail-col">
+        <h4>Bayesian — Analysis 1</h4>
+        <ul>
+          <li>Vague priors (half-normal, τ)</li>
+          <li>P(change &gt; MCID) per domain</li>
+          <li>SMD ≥ 0.5 if no MCID</li>
+          <li>95% credible intervals</li>
+          <li>bayesmeta package (R)</li>
+        </ul>
+      </div>
+      <div class="flow-detail-col">
+        <h4>Bayesian — Analysis 2</h4>
+        <ul>
+          <li>Informative prior derivation</li>
+          <li>θ ~ N(μ_pooled, σ²_pooled + τ²)</li>
+          <li>Per domain × time point</li>
+          <li>Updated each annual cycle</li>
+          <li>GRADE Guideline 28</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flow-detail" id="d4">
+      <div class="flow-detail-col">
+        <h4>Update schedule</h4>
+        <ul>
+          <li>Every 12 months</li>
+          <li>Within 1 month pre-submission</li>
+          <li>Earlier if triggered</li>
+        </ul>
+      </div>
+      <div class="flow-detail-col">
+        <h4>Triggers</h4>
+        <ul>
+          <li>Large cohort (≥1,000 patients)</li>
+          <li>Major change in practice</li>
+        </ul>
+      </div>
+      <div class="flow-detail-col">
+        <h4>Governance</h4>
+        <ul>
+          <li>Amendments dated + documented</li>
+          <li>PROSPERO record updated</li>
+          <li>Code versioned on GitHub</li>
+          <li>Bayesian priors revised</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="flow-detail" id="detail-4">
-        <div class="flow-detail-col">
-          <h4>Update cycle</h4>
-          <ul>
-            <li>Every 12 months</li>
-            <li>Earlier if triggered</li>
-            <li>Pre-submission update</li>
-            <li>First update: Month 24</li>
-          </ul>
+<!-- SEARCH STRATEGY -->
+<section id="search">
+  <div class="container">
+    <div class="section-label">Search strategy</div>
+    <h2>Draft PubMed search string</h2>
+    <p class="section-intro">Retrieved ~25,549 records on 4 June 2026. Will be updated prior to formal search execution and peer-reviewed following the PRESS checklist.</p>
+
+    <div class="search-meta" style="display:flex;gap:16px;flex-wrap:wrap;margin-top:32px;margin-bottom:20px;">
+      <div class="ficha-card" style="padding:16px 20px;flex:1;min-width:160px;">
+        <div class="ficha-title">Records retrieved</div>
+        <div style="font-family:'DM Serif Display',serif;font-size:28px;color:var(--accent);">~25,549</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);">PubMed · 4 Jun 2026</div>
+      </div>
+      <div class="ficha-card" style="padding:16px 20px;flex:1;min-width:160px;">
+        <div class="ficha-title">Translation tool</div>
+        <div style="font-size:14px;font-weight:600;color:var(--text-primary);">Polyglot</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);">SR-Accelerator</div>
+      </div>
+      <div class="ficha-card" style="padding:16px 20px;flex:1;min-width:160px;">
+        <div class="ficha-title">Peer review</div>
+        <div style="font-size:14px;font-weight:600;color:var(--text-primary);">PRESS checklist</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);">McGowan et al. 2016</div>
+      </div>
+      <div class="ficha-card" style="padding:16px 20px;flex:1;min-width:160px;">
+        <div class="ficha-title">Reporting</div>
+        <div style="font-size:14px;font-weight:600;color:var(--text-primary);">PRISMA-S</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);">Rethlefsen et al. 2021</div>
+      </div>
+    </div>
+
+    <div class="search-accordion" id="searchAccordion">
+      <button class="search-toggle" onclick="toggleSearch()" id="searchBtn">
+        <span>View full search string</span>
+        <span class="search-toggle-icon" id="searchIcon">↓</span>
+      </button>
+      <div class="search-content" id="searchContent">
+        <div class="search-actions">
+          <button class="copy-btn" onclick="copySearch()" id="copyBtn">Copy to clipboard</button>
         </div>
-        <div class="flow-detail-col">
-          <h4>Update triggers</h4>
-          <ul>
-            <li>Large cohort (≥1000 pts)</li>
-            <li>New SR missing studies</li>
-            <li>Major practice change</li>
-          </ul>
-        </div>
-        <div class="flow-detail-col">
-          <h4>Amendments</h4>
-          <ul>
-            <li>Dated and described</li>
-            <li>Rationale documented</li>
-            <li>PROSPERO record updated</li>
-            <li>Reported in manuscript</li>
-          </ul>
+        <div class="search-string" id="searchString">
+          <span class="search-block-1">("intensive care units"[MeSH] OR "critical care"[MeSH] OR "critical illness"[MeSH] OR "Respiration, Artificial"[MeSH] OR "Sepsis"[MeSH] OR "intensive care unit*"[tiab] OR "intensive care"[tiab] OR "critical care"[tiab] OR "critical illness"[tiab] OR "critically ill"[tiab] OR "ICU"[tiab] OR "mechanical ventilation"[tiab] OR "mechanically ventilated"[tiab] OR "sepsis"[tiab] OR "ARDS"[tiab] OR "acute respiratory distress syndrome"[tiab] OR "acute respiratory failure"[tiab])</span> <span class="search-and">AND</span> <span class="search-block-2">("post-intensive care syndrome"[tiab] OR "PICS"[tiab] OR "ICU survivor*"[tiab] OR "critical care survivor*"[tiab] OR "critical illness survivor*"[tiab] OR "Survivors"[MeSH] OR "physical function*"[tiab] OR "functional recovery"[tiab] OR "functional outcome*"[tiab] OR "functional status"[tiab] OR "muscle strength"[tiab] OR "muscle weakness"[tiab] OR "muscle wasting"[tiab] OR "muscle atrophy"[tiab] OR "muscle power"[tiab] OR "handgrip strength"[tiab] OR "grip strength"[tiab] OR "ICU-acquired weakness"[tiab] OR "ICUAW"[tiab] OR "exercise capacity"[tiab] OR "physical performance"[tiab] OR "6-minute walk"[tiab] OR "six-minute walk"[tiab] OR "walk* test"[tiab] OR "fatigue"[tiab] OR "postural balance"[tiab] OR "functional mobility"[tiab] OR "activities of daily living"[tiab] OR "return to work"[tiab] OR "Muscle Weakness"[MeSH] OR "Activities of Daily Living"[MeSH] OR "Physical Functional Performance"[MeSH] OR "Sarcopenia"[MeSH] OR "memory"[tiab] OR "attention"[tiab] OR "processing speed"[tiab] OR "cognitive impairment*"[tiab] OR "cognitive function*"[tiab] OR "cognitive dysfunction"[tiab] OR "cognitive decline"[tiab] OR "neuropsychological"[tiab] OR "executive function*"[tiab] OR "delirium"[tiab] OR "Cognition"[MeSH] OR "Cognition Disorders"[MeSH] OR "Executive Function"[MeSH] OR "Delirium"[MeSH] OR "mental health"[tiab] OR "psychological outcome*"[tiab] OR "psychological distress"[tiab] OR "anxiety"[tiab] OR "depression"[tiab] OR "post-traumatic stress"[tiab] OR "stress disorder*"[tiab] OR "PTSD"[tiab] OR "psychiatric"[tiab] OR "Depression"[MeSH] OR "Anxiety Disorders"[MeSH] OR "Stress Disorders, Post-Traumatic"[MeSH] OR "disability"[tiab] OR "functional limitation*"[tiab] OR "participation restriction"[tiab] OR "WHODAS"[tiab] OR "Persons with Disabilities"[MeSH] OR "Disability Evaluation"[MeSH] OR "quality of life"[tiab] OR "health-related quality of life"[tiab] OR "HRQoL"[tiab] OR "HRQL"[tiab] OR "health status"[tiab] OR "patient-reported outcome*"[tiab] OR "well-being"[tiab] OR "SF-36"[tiab] OR "EQ-5D"[tiab] OR "Quality of Life"[MeSH])</span> <span class="search-and">AND</span> <span class="search-block-3">("cohort studies"[MeSH] OR "longitudinal studies"[MeSH] OR "follow-up studies"[MeSH] OR "cohort"[tiab] OR "longitudinal"[tiab] OR "follow-up"[tiab] OR "prospective"[tiab] OR "retrospective"[tiab] OR "trajectory"[tiab] OR "trajectories"[tiab] OR "long-term outcome*"[tiab] OR "long-term follow-up"[tiab] OR "observational stud*"[tiab])</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FIVE DOMAINS -->
+<!-- BAYESIAN -->
+<section id="bayesian">
+  <div class="container">
+    <div class="section-label">Statistical innovation</div>
+    <h2>Two complementary Bayesian analyses</h2>
+    <p class="section-intro">The Bayesian framework distinguishes this review from a standard meta-analysis. Both analyses are pre-specified and updated at each annual cycle.</p>
+    <div class="bayesian-grid">
+      <div class="bayesian-card">
+        <div class="bayesian-tag">Analysis 1 · Vague priors</div>
+        <h3>Probability of clinically meaningful recovery</h3>
+        <p>A Bayesian meta-analysis is performed for each domain and time point using vague priors (half-normal with scale 0.5 for τ). This analysis directly estimates the probability that the pooled change exceeds the instrument-specific MCID.</p>
+        <p>Where no validated MCID is available, SMD ≥ 0.5 is used as the reference threshold. Results are reported as posterior probabilities with 95% credible intervals.</p>
+        <div class="bayesian-specs">
+          <div class="bayesian-spec"><span>Prior for τ</span><span>Half-normal(0, 0.5)</span></div>
+          <div class="bayesian-spec"><span>Output</span><span>P(Δ &gt; MCID)</span></div>
+          <div class="bayesian-spec"><span>Fallback</span><span>SMD ≥ 0.5</span></div>
+          <div class="bayesian-spec"><span>Reported as</span><span>Posterior prob. + 95% CrI</span></div>
+        </div>
+      </div>
+      <div class="bayesian-card">
+        <div class="bayesian-tag">Analysis 2 · Informative priors</div>
+        <h3>Prior derivation for future studies</h3>
+        <p>The pooled MD or SMD and τ² from the frequentist meta-analyses parameterise domain-specific informative priors for future Bayesian studies. For each domain and time window:</p>
+        <div class="bayesian-formula">θ ~ N(μ<sub>pooled</sub>, σ²<sub>pooled</sub> + τ²)</div>
+        <div class="bayesian-specs">
+          <div class="bayesian-spec"><span>μ_pooled</span><span>Mean trajectory of change</span></div>
+          <div class="bayesian-spec"><span>σ²_pooled</span><span>Variance of pooled estimate</span></div>
+          <div class="bayesian-spec"><span>τ²</span><span>Between-study heterogeneity</span></div>
+          <div class="bayesian-spec"><span>Output</span><span>Table by domain × time point</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bayesian-note">
+      Both analyses connect directly to the living review update cycle — priors are revised at each annual search update as new cohort data are incorporated. This creates a continuously evolving evidence base that future trials and prognostic studies can use directly.
+    </div>
+  </div>
+</section>
+
+<!-- DOMAINS -->
 <section id="domains">
   <div class="container">
     <div class="section-label">Outcome framework</div>
     <h2>Five PICS domains</h2>
-    <p class="section-intro">Outcomes are pooled per domain and subdomain at each pre-specified time point, from ICU discharge to beyond 12 months.</p>
+    <p class="section-intro">All five domains are synthesised simultaneously. MD when studies use the same instrument; SMD when instruments differ. Any validated instrument accepted.</p>
     <div class="domains-grid">
       <div class="domain-card">
-        <div class="domain-icon">💪</div>
+        <div class="domain-num">Domain 01</div>
         <h3>Physical Function</h3>
         <ul class="domain-subs">
           <li>Muscle strength</li>
+          <li>Muscle power</li>
           <li>Exercise capacity</li>
           <li>Functional mobility</li>
           <li>Fatigue</li>
@@ -942,7 +1028,7 @@
         </ul>
       </div>
       <div class="domain-card">
-        <div class="domain-icon">🧠</div>
+        <div class="domain-num">Domain 02</div>
         <h3>Cognition</h3>
         <ul class="domain-subs">
           <li>Memory</li>
@@ -953,7 +1039,7 @@
         </ul>
       </div>
       <div class="domain-card">
-        <div class="domain-icon">🧩</div>
+        <div class="domain-num">Domain 03</div>
         <h3>Mental Health</h3>
         <ul class="domain-subs">
           <li>Anxiety</li>
@@ -962,7 +1048,7 @@
         </ul>
       </div>
       <div class="domain-card">
-        <div class="domain-icon">♿</div>
+        <div class="domain-num">Domain 04</div>
         <h3>Disability</h3>
         <ul class="domain-subs">
           <li>Functional limitations</li>
@@ -971,233 +1057,161 @@
         </ul>
       </div>
       <div class="domain-card">
-        <div class="domain-icon">✦</div>
+        <div class="domain-num">Domain 05</div>
         <h3>HRQoL</h3>
         <ul class="domain-subs">
           <li>Generic measures</li>
           <li>Disease-specific</li>
-          <li>PROMs</li>
+          <li>Patient-reported outcomes</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROGRESS TIMELINE -->
-<section id="progress">
+<!-- TIMEPOINTS -->
+<section id="timepoints">
   <div class="container">
-    <div class="section-label">Review status</div>
-    <h2>Project roadmap</h2>
-    <p class="section-intro">Estimated timeline: May 2026 → April 2027. Living updates thereafter on 12-month cycles.</p>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-date">Jan–Apr 2026</div>
-        <div class="timeline-dot dot-done"></div>
-        <div class="timeline-content">
-          <h4>Protocol development</h4>
-          <p>PICO framework, eligibility criteria, search strategy, data extraction variables, statistical analysis plan, LSR framework. <span class="badge badge-green" style="font-size:10px;">Completed</span></p>
-        </div>
+    <div class="section-label">Follow-up windows</div>
+    <h2>Pre-specified time points</h2>
+    <p class="section-intro">Data are pooled separately for each time window. All change estimates are relative to T0 — ICU discharge — the baseline.</p>
+    <div class="tp-grid">
+      <div class="tp-cell t0">
+        <div class="tp-tag">T0</div>
+        <div class="tp-label">ICU discharge</div>
+        <div class="tp-window">Baseline</div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">Apr–May 2026</div>
-        <div class="timeline-dot dot-active"></div>
-        <div class="timeline-content">
-          <h4>PROSPERO registration &amp; protocol submission</h4>
-          <p>Awaiting co-investigator feedback before formal registration. Target journals: BMJ Open / Systematic Reviews. <span class="badge badge-amber" style="font-size:10px;">In progress</span></p>
-        </div>
+      <div class="tp-cell">
+        <div class="tp-tag">T1</div>
+        <div class="tp-label">Hospital discharge</div>
+        <div class="tp-window">Where reported</div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">May–Jun 2026</div>
-        <div class="timeline-dot dot-pending"></div>
-        <div class="timeline-content">
-          <h4>Search execution &amp; deduplication</h4>
-          <p>7 databases from inception. The Duplicator for deduplication. Start date: 31 May 2026. <span class="badge" style="background:var(--border);color:var(--text-muted);font-size:10px;">Pending</span></p>
-        </div>
+      <div class="tp-cell">
+        <div class="tp-tag">T2</div>
+        <div class="tp-label">3 months</div>
+        <div class="tp-window">± 4 weeks</div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">Jun–Aug 2026</div>
-        <div class="timeline-dot dot-pending"></div>
-        <div class="timeline-content">
-          <h4>Title/abstract &amp; full-text screening</h4>
-          <p>Dual-reviewer screening via DistillerSR. Kappa calculated at both stages. <span class="badge" style="background:var(--border);color:var(--text-muted);font-size:10px;">Pending</span></p>
-        </div>
+      <div class="tp-cell">
+        <div class="tp-tag">T3</div>
+        <div class="tp-label">6 months</div>
+        <div class="tp-window">± 4 weeks</div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">Aug–Oct 2026</div>
-        <div class="timeline-dot dot-pending"></div>
-        <div class="timeline-content">
-          <h4>Data extraction &amp; risk of bias</h4>
-          <p>JBI Cohort Checklist. Standardised form across 5 variable categories. Author contact if needed. <span class="badge" style="background:var(--border);color:var(--text-muted);font-size:10px;">Pending</span></p>
-        </div>
+      <div class="tp-cell">
+        <div class="tp-tag">T4</div>
+        <div class="tp-label">12 months</div>
+        <div class="tp-window">± 8 weeks</div>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-date">Oct 2026–Feb 2027</div>
-        <div class="timeline-dot dot-pending"></div>
-        <div class="timeline-content">
-          <h4>Statistical analysis &amp; manuscript</h4>
-          <p>Meta-analysis in R. Target: ICM / CCM / Critical Care (Q1). <span class="badge" style="background:var(--border);color:var(--text-muted);font-size:10px;">Pending</span></p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-date">Apr 2027 onward</div>
-        <div class="timeline-dot dot-pending"></div>
-        <div class="timeline-content">
-          <h4>Living updates</h4>
-          <p>Annual search updates. Major changes trigger new publication. PROSPERO record amended as needed. <span class="badge" style="background:var(--border);color:var(--text-muted);font-size:10px;">Recurring</span></p>
-        </div>
+      <div class="tp-cell">
+        <div class="tp-tag">T5</div>
+        <div class="tp-label">&gt;12 months</div>
+        <div class="tp-window">Long-term</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRANSPARENCY / FICHA -->
-<section id="transparency">
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="container">
+    <div class="section-label">Project status</div>
+    <h2>Roadmap</h2>
+    <p class="section-intro">Baseline review: July 2026 → April 2027. Annual living updates thereafter.</p>
+    <div style="margin-top:52px; position:relative;">
+      <div style="position:absolute;left:159px;top:22px;bottom:22px;width:1px;background:var(--border);"></div>
+      <div style="display:flex;flex-direction:column;">
+
+        <div style="display:grid;grid-template-columns:160px 1fr;padding:18px 0;border-bottom:1px solid var(--border);">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);text-align:right;padding-right:32px;padding-top:2px;">Jan–Jun 2026</div>
+          <div style="padding-left:40px;position:relative;">
+            <div style="position:absolute;left:-7px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--green);border:2px solid var(--bg);"></div>
+            <h4 style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Protocol development</h4>
+            <p style="font-size:13px;color:var(--text-secondary);">Full protocol v0.6 completed. PICO, eligibility, search strategy, extraction variables, Bayesian analysis plan, LSR framework. <span class="badge badge-green" style="margin-left:6px;">Done</span></p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:160px 1fr;padding:18px 0;border-bottom:1px solid var(--border);">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);text-align:right;padding-right:32px;padding-top:2px;">Jun–Jul 2026</div>
+          <div style="padding-left:40px;position:relative;">
+            <div style="position:absolute;left:-7px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 0 4px var(--accent-light);"></div>
+            <h4 style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Team assembly &amp; PROSPERO registration</h4>
+            <p style="font-size:13px;color:var(--text-secondary);">Collaborators being confirmed. PROSPERO submission pending team review. <span class="badge badge-amber" style="margin-left:6px;">In progress</span></p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:160px 1fr;padding:18px 0;border-bottom:1px solid var(--border);">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);text-align:right;padding-right:32px;padding-top:2px;">Jul–Aug 2026</div>
+          <div style="padding-left:40px;position:relative;">
+            <div style="position:absolute;left:-7px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--border);border:2px solid var(--bg);"></div>
+            <h4 style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Search execution &amp; deduplication</h4>
+            <p style="font-size:13px;color:var(--text-secondary);">8 databases from inception. The Duplicator for deduplication. Start date: 30 Jul 2026.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:160px 1fr;padding:18px 0;border-bottom:1px solid var(--border);">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);text-align:right;padding-right:32px;padding-top:2px;">Aug–Oct 2026</div>
+          <div style="padding-left:40px;position:relative;">
+            <div style="position:absolute;left:-7px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--border);border:2px solid var(--bg);"></div>
+            <h4 style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Screening</h4>
+            <p style="font-size:13px;color:var(--text-secondary);">Semi-automated dual-reviewer workflow. Kappa at both stages.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:160px 1fr;padding:18px 0;border-bottom:1px solid var(--border);">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);text-align:right;padding-right:32px;padding-top:2px;">Oct–Nov 2026</div>
+          <div style="padding-left:40px;position:relative;">
+            <div style="position:absolute;left:-7px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--border);border:2px solid var(--bg);"></div>
+            <h4 style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Data extraction &amp; risk of bias</h4>
+            <p style="font-size:13px;color:var(--text-secondary);">Semi-automated extraction. JBI Cohort Checklist (Barker et al., 2025).</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:160px 1fr;padding:18px 0;border-bottom:1px solid var(--border);">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);text-align:right;padding-right:32px;padding-top:2px;">Nov 2026–Apr 2027</div>
+          <div style="padding-left:40px;position:relative;">
+            <div style="position:absolute;left:-7px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--border);border:2px solid var(--bg);"></div>
+            <h4 style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Analysis &amp; manuscript</h4>
+            <p style="font-size:13px;color:var(--text-secondary);">Frequentist + dual Bayesian analyses in R. Target: Intensive Care Medicine / Critical Care Medicine / Critical Care.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:160px 1fr;padding:18px 0;">
+          <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);text-align:right;padding-right:32px;padding-top:2px;">Apr 2027 →</div>
+          <div style="padding-left:40px;position:relative;">
+            <div style="position:absolute;left:-7px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--amber);border:2px solid var(--bg);"></div>
+            <h4 style="font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:4px;">Living updates</h4>
+            <p style="font-size:13px;color:var(--text-secondary);">Annual search cycles. Bayesian priors revised with each update. PROSPERO record amended as needed. <span class="badge badge-amber" style="margin-left:6px;">Recurring</span></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FICHA TECNICA -->
+<section id="ficha">
   <div class="container">
     <div class="section-label">Technical record</div>
     <h2>Transparency &amp; registration</h2>
-    <p class="section-intro">All methodological decisions are pre-registered. Amendments will be dated, documented, and disclosed in the final manuscript.</p>
+    <p class="section-intro">All methodological decisions are pre-specified. Amendments will be dated, documented, and disclosed in the final manuscript.</p>
     <div class="ficha-grid">
       <div class="ficha-card">
-        <div class="ficha-card-title">Protocol details</div>
-        <div class="ficha-row"><span class="ficha-key">Review type</span><span class="ficha-val">Living systematic review + meta-analysis</span></div>
-        <div class="ficha-row"><span class="ficha-key">Study designs</span><span class="ficha-val">Cohort studies (prospective & retrospective)</span></div>
-        <div class="ficha-row"><span class="ficha-key">Protocol version</span><span class="ficha-val mono">v5.0 · 23 May 2026</span></div>
-        <div class="ficha-row"><span class="ficha-key">PROSPERO ID</span><span class="ficha-val">Pending</span></div>
-        <div class="ficha-row"><span class="ficha-key">OSF deposit</span><span class="ficha-val">Prior to search execution</span></div>
+        <div class="ficha-title">Protocol details</div>
+        <div class="ficha-row"><span class="ficha-key">Review type</span><span class="ficha-val">LSR + Bayesian meta-analysis</span></div>
+        <div class="ficha-row"><span class="ficha-key">Study designs</span><span class="ficha-val">Cohort studies (prospective &amp; retrospective)</span></div>
+        <div class="ficha-row"><span class="ficha-key">Protocol version</span><span class="ficha-val mono">v0.6 · June 2026</span></div>
+        <div class="ficha-row"><span class="ficha-key">PROSPERO</span><span class="ficha-val">Pending registration</span></div>
         <div class="ficha-row"><span class="ficha-key">Protocol paper target</span><span class="ficha-val">BMJ Open / Systematic Reviews</span></div>
+        <div class="ficha-row"><span class="ficha-key">Full review target</span><span class="ficha-val">ICM / CCM / Critical Care (Q1)</span></div>
       </div>
       <div class="ficha-card">
-        <div class="ficha-card-title">Search &amp; analysis</div>
-        <div class="ficha-row"><span class="ficha-key">Databases</span><span class="ficha-val">7 (incl. LILACS)</span></div>
-        <div class="ficha-row"><span class="ficha-key">Draft records (PubMed)</span><span class="ficha-val mono">~19,785</span></div>
-        <div class="ficha-row"><span class="ficha-key">Search start</span><span class="ficha-val mono">31 May 2026</span></div>
+        <div class="ficha-title">Search &amp; analysis</div>
+        <div class="ficha-row"><span class="ficha-key">Databases</span><span class="ficha-val mono">8 (incl. LILACS + PEDro)</span></div>
+        <div class="ficha-row"><span class="ficha-key">Draft records (PubMed)</span><span class="ficha-val mono">~25,549 (4 Jun 2026)</span></div>
+        <div class="ficha-row"><span class="ficha-key">Search start</span><span class="ficha-val mono">30 Jul 2026</span></div>
         <div class="ficha-row"><span class="ficha-key">Effect measure</span><span class="ficha-val">MD / SMD (REML)</span></div>
         <div class="ficha-row"><span class="ficha-key">RoB tool</span><span class="ficha-val">JBI Checklist for Cohort Studies</span></div>
-        <div class="ficha-row"><span class="ficha-key">Certainty</span><span class="ficha-val">GRADE (adapted for prognosis)</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OUTPUTS -->
-<section id="outputs">
-  <div class="container">
-    <div class="section-label">Deliverables</div>
-    <h2>Project outputs</h2>
-    <p class="section-intro">Outputs will be deposited openly and linked to this record as they become available.</p>
-    <div class="outputs-grid">
-      <div class="output-card">
-        <div class="output-header">
-          <div class="output-icon">📄</div>
-          <span class="badge badge-green">Available</span>
-        </div>
-        <h3>Protocol document</h3>
-        <p>Full protocol v0.6. Covers all sections including rationale, eligibility criteria, search strategy, extraction variables, Bayesian analysis plan, and LSR framework.</p>
-        <div class="output-footer">
-          <span class="output-date">June 2026</span>
-          <a href="#" class="btn-secondary" style="font-size:11px;padding:5px 12px;">Download ↗</a>
-        </div>
-      </div>
-      <div class="output-card">
-        <div class="output-header">
-          <div class="output-icon">🔍</div>
-          <span class="badge badge-amber">Draft</span>
-        </div>
-        <h3>PubMed search string</h3>
-        <p>Draft Boolean search string combining ICU synonyms, PICS domains, and cohort design terms. ~19,785 records retrieved on 19 Apr 2026.</p>
-        <div class="output-footer">
-          <span class="output-date">19 Apr 2026</span>
-          <a href="#" class="btn-secondary" style="font-size:11px;padding:5px 12px;">View ↗</a>
-        </div>
-      </div>
-      <div class="output-card">
-        <div class="output-header">
-          <div class="output-icon">📊</div>
-          <span class="badge" style="background:var(--border);color:var(--text-muted);">Pending</span>
-        </div>
-        <h3>Protocol paper</h3>
-        <p>Full methods paper for peer review. Target: BMJ Open or Systematic Reviews. Submission planned for Month 2–3 of the review.</p>
-        <div class="output-footer">
-          <span class="output-date">Est. Jul 2026</span>
-        </div>
-      </div>
-      <div class="output-card">
-        <div class="output-header">
-          <div class="output-icon">📋</div>
-          <span class="badge" style="background:var(--border);color:var(--text-muted);">Pending</span>
-        </div>
-        <h3>PRISMA flow diagram</h3>
-        <p>2020-compliant flow diagram documenting records identified, screened, and included at each stage.</p>
-        <div class="output-footer">
-          <span class="output-date">Est. Sep 2026</span>
-        </div>
-      </div>
-      <div class="output-card">
-        <div class="output-header">
-          <div class="output-icon">📈</div>
-          <span class="badge" style="background:var(--border);color:var(--text-muted);">Pending</span>
-        </div>
-        <h3>Forest plots &amp; figures</h3>
-        <p>Domain-specific forest plots per time point, meta-regression plots, funnel plots. Generated in R (ggplot2, metafor).</p>
-        <div class="output-footer">
-          <span class="output-date">Est. Jan 2027</span>
-        </div>
-      </div>
-      <div class="output-card">
-        <div class="output-header">
-          <div class="output-icon">📰</div>
-          <span class="badge" style="background:var(--border);color:var(--text-muted);">Pending</span>
-        </div>
-        <h3>Full review manuscript</h3>
-        <p>Main results paper targeting Intensive Care Medicine, Critical Care Medicine, or Critical Care (Q1 journals).</p>
-        <div class="output-footer">
-          <span class="output-date">Est. Mar 2027</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- UPDATES / CHANGELOG -->
-<section id="updates">
-  <div class="container">
-    <div class="section-label">Changelog</div>
-    <h2>Project updates</h2>
-    <div class="updates-list">
-      <div class="update-item">
-        <div class="update-date">June 2026</div>
-        <div class="update-content">
-          <h4>Protocol v0.6 <span class="badge badge-blue" style="margin-left:8px;font-size:10px;">Latest</span></h4>
-          <p>Rationale fully rewritten with new reference set (Needham 2012, Geense 2021, Hiser 2023, Marra 2018, domain-specific SRs). Objectives restructured: 6 secondary objectives including separate Bayesian outputs. Eligibility revised: patient-centred language, 30% threshold removed, neurological exclusion criterion consolidated. PEDro added to databases. Semi-automated screening and extraction (platform TBC). GRADE updated to Guideline 28 (Foroutan 2020). JBI removed from meta-regression covariates. Team updated: Michelle Paton confirmed, three members removed.</p>
-        </div>
-      </div>
-      <div class="update-item">
-        <div class="update-date">23 May 2026</div>
-        <div class="update-content">
-          <h4>Protocol v0.5</h4>
-          <p>Bayesian analysis section substantially expanded. Dual analysis structure specified. MCID added to extraction table and pre-specified outcomes. P(change &gt; MCID) derived from posterior distribution. Both Bayesian analyses connected to LSR annual update cycle.</p>
-        </div>
-      </div>
-      <div class="update-item">
-        <div class="update-date">19 Apr 2026</div>
-        <div class="update-content">
-          <h4>Protocol v0.4 completed</h4>
-          <p>All sections finalised. PROSPERO preview exported. Draft PubMed search string yields ~19,785 records. Awaiting co-investigator feedback before formal submission.</p>
-        </div>
-      </div>
-      <div class="update-item">
-        <div class="update-date">Apr 2026</div>
-        <div class="update-content">
-          <h4>Similarity search completed</h4>
-          <p>PROSPERO checked on 19 Apr 2026. Three records identified; none duplicate the multi-domain longitudinal scope of this review. Review team cleared to proceed.</p>
-        </div>
-      </div>
-      <div class="update-item">
-        <div class="update-date">Mar–Apr 2026</div>
-        <div class="update-content">
-          <h4>Protocol development initiated</h4>
-          <p>PICO framework, eligibility criteria, search strategy, data extraction variables, and LSR framework drafted. LILACS added. Title and objectives confirmed.</p>
-        </div>
+        <div class="ficha-row"><span class="ficha-key">Certainty</span><span class="ficha-val">GRADE Guideline 28 (prognosis)</span></div>
       </div>
     </div>
   </div>
@@ -1206,66 +1220,137 @@
 <!-- TEAM -->
 <section id="team">
   <div class="container">
-    <div class="section-label">Collaborators</div>
-    <h2>Review team</h2>
-    <p class="section-intro">Principal investigator and co-investigator confirmed. Additional collaborators named in the protocol.</p>
+    <div class="section-label">Review team</div>
+    <h2>Principal investigators</h2>
+    <p class="section-intro">This review is led by two investigators in physiotherapy and critical care research across Chile and the United States.</p>
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-initials">CC</div>
-        <h3>Camilo Caceres-Parra</h3>
-        <div class="team-role">PI · Guarantor</div>
-        <div class="team-affil">Universidad del Desarrollo, Chile</div>
+        <div class="team-avatar">CC</div>
+        <div class="team-info">
+          <div class="team-role">PI · Guarantor · Contact</div>
+          <h3>Camilo Caceres-Parra</h3>
+          <div class="team-affil">School of Physical Therapy, Facultad de Medicina<br>Clínica Alemana Universidad del Desarrollo, Chile<br>ORCID: 0000-0002-1154-2097</div>
+          <a class="team-email" href="mailto:ccaceresp@udd.cl">ccaceresp@udd.cl</a>
+        </div>
       </div>
       <div class="team-card">
-        <div class="team-initials">FG</div>
-        <h3>Felipe González-Seguel</h3>
-        <div class="team-role">Co-Investigator</div>
-        <div class="team-affil">University of Kentucky, USA · UDD, Chile</div>
+        <div class="team-avatar">FG</div>
+        <div class="team-info">
+          <div class="team-role">Co-Investigator</div>
+          <h3>Felipe González-Seguel</h3>
+          <div class="team-affil">Department of Physical Therapy<br>University of Kentucky, USA<br>Universidad del Desarrollo, Chile</div>
+        </div>
       </div>
     </div>
-    <p style="font-size:12px;color:var(--text-muted);margin-top:20px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);">Additional collaborators (Sabrina Eggmann, Ana Cristina Castro-Avila, Kirby Mayer, Michelle Paton, Øystein Tronstad) are named in the protocol. Several have declared conflicts of interest as likely authors of eligible studies and will be excluded from screening and extraction for those studies. Information specialist and statistical analyst to be confirmed.</p>
+    <div class="team-note">
+      This review is assembling an international team of collaborators across critical care and methodology. Additional team members will be acknowledged upon confirmation.
+    </div>
+  </div>
+</section>
+
+<!-- CHANGELOG -->
+<section id="changelog">
+  <div class="container">
+    <div class="section-label">Version history</div>
+    <h2>Protocol changelog</h2>
+    <div class="changelog-list">
+      <div class="changelog-item">
+        <div class="changelog-date">June 2026</div>
+        <div class="changelog-content">
+          <h4>Protocol v0.6 <span class="badge badge-blue" style="margin-left:8px;font-size:10px;">Current</span></h4>
+          <p>Rationale rewritten with updated reference set. Objectives restructured into 6 secondary objectives with separate Bayesian outputs. Eligibility revised: patient-centred language, 30% neurological threshold removed, exclusion criteria consolidated. PEDro added as 8th database. Semi-automated screening and extraction workflow formalised (platform TBC). GRADE updated to Guideline 28 (Foroutan 2020). JBI removed from meta-regression covariates. Abstract rewritten following PRISMA-P structure.</p>
+        </div>
+      </div>
+      <div class="changelog-item">
+        <div class="changelog-date">May 2026</div>
+        <div class="changelog-content">
+          <h4>Protocol v0.5</h4>
+          <p>Bayesian analysis section substantially expanded. Dual analysis structure specified: vague priors for P(change &gt; MCID) and informative prior derivation θ ~ N(μ_pooled, σ²_pooled + τ²). MCID added to extraction table and pre-specified outcomes. Both analyses connected to the LSR annual update cycle.</p>
+        </div>
+      </div>
+      <div class="changelog-item">
+        <div class="changelog-date">Apr 2026</div>
+        <div class="changelog-content">
+          <h4>Protocol v0.4</h4>
+          <p>All sections finalised. PROSPERO preview exported. Draft PubMed search string yields ~19,785 records. Free/open-source tool stack identified. PROSPERO similarity check: three records reviewed, none duplicating our scope.</p>
+        </div>
+      </div>
+      <div class="changelog-item">
+        <div class="changelog-date">Mar–Apr 2026</div>
+        <div class="changelog-content">
+          <h4>Protocol development initiated</h4>
+          <p>PICO framework, eligibility criteria, search strategy, data extraction variables, and LSR framework drafted. Title and objectives confirmed.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <div class="footer-inner">
+    <div class="footer-grid">
       <div class="footer-col">
         <h4>Project</h4>
         <p>Longitudinal trajectories of PICS outcomes<br>in adults surviving critical illness</p>
-        <p style="margin-top:10px;">Living Systematic Review · Protocol v0.6</p>
+        <p style="margin-top:8px;color:var(--text-muted);font-family:'DM Mono',monospace;font-size:11px;">Living Systematic Review · Protocol v0.6</p>
       </div>
       <div class="footer-col">
         <h4>Links</h4>
-        <a href="#">PROSPERO record (pending)</a>
-        <a href="#">OSF preregistration (pending)</a>
+        <a href="#">PROSPERO (pending)</a>
         <a href="#">Protocol document</a>
-        <a href="#">GitHub (analysis code)</a>
+        <a href="#">GitHub — analysis code</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <p>Camilo Caceres-Parra (PI)</p>
         <a href="mailto:ccaceresp@udd.cl">ccaceresp@udd.cl</a>
-        <p style="margin-top:8px;">School of Physical Therapy<br>Facultad de Medicina<br>Clínica Alemana Universidad del Desarrollo<br>Santiago, Chile</p>
+        <p style="margin-top:6px;">School of Physical Therapy<br>Facultad de Medicina<br>Clínica Alemana Universidad del Desarrollo<br>Santiago, Chile</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>PICS Living Review · Last updated June 2026 · Protocol v0.6</p>
-      <p>ORCID: 0000-0002-1154-2097</p>
+      <p>PICS Living Review · v0.6 · June 2026 · Protocol in development</p>
+      <p>ORCID 0000-0002-1154-2097</p>
     </div>
   </div>
 </footer>
 
 <script>
-  const stageData = [0,1,2,3,4];
   function showStage(idx) {
-    stageData.forEach(i => {
-      document.getElementById('stage-' + i).classList.toggle('active', i === idx);
-      const det = document.getElementById('detail-' + i);
-      det.classList.toggle('visible', i === idx);
+    for (let i = 0; i < 5; i++) {
+      document.getElementById('s' + i).classList.toggle('active', i === idx);
+      const d = document.getElementById('d' + i);
+      d.classList.toggle('visible', i === idx);
+      if (i === idx) d.style.display = 'grid';
+      else d.style.display = 'none';
+    }
+  }
+
+  function toggleSearch() {
+    const content = document.getElementById('searchContent');
+    const icon = document.getElementById('searchIcon');
+    const btn = document.getElementById('searchBtn');
+    const isOpen = content.classList.contains('visible');
+    content.classList.toggle('visible', !isOpen);
+    icon.classList.toggle('open', !isOpen);
+    btn.querySelector('span:first-child').textContent = isOpen ? 'View full search string' : 'Hide search string';
+  }
+
+  function copySearch() {
+    const el = document.getElementById('searchString');
+    const text = el.innerText || el.textContent;
+    navigator.clipboard.writeText(text.trim()).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = 'Copied ✓';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy to clipboard'; btn.classList.remove('copied'); }, 2000);
     });
   }
+
+  // Init
+  document.getElementById('d0').style.display = 'grid';
+  document.getElementById('d0').classList.add('visible');
 </script>
+
 </body>
 </html>
